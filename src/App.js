@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-// import { AddJobForm } from './components/addJobForm/AddJobForm';
 import { List } from './components/list/List';
 
 function App() {

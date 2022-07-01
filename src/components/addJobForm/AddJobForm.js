@@ -12,7 +12,7 @@ export const AddJobForm = (props) => {
       title: e.target[1].value,
       createAt: Date.now(),
       description: e.target[2].value,
-      descriptionPreview: e.target[2].value.substring(0, 2),
+      descriptionPreview: e.target[2].value.substring(0, 3),
     };
     setjobs([...jobs, newJob]);
   };
