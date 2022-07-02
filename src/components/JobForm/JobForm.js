@@ -1,24 +1,31 @@
+import { addDoc } from 'firebase/firestore';
 import React from 'react';
-import './addJobForm.css';
+import { jobsCol } from '../../data/firebase.config';
+import { PropTypes } from 'prop-types';
+import './jobForm.css';
 
-export const AddJobForm = (props) => {
+export const JobForm = (props) => {
   const [jobs, setjobs] = props.data;
 
   const handleForm = (e) => {
     e.preventDefault();
 
     const newJob = {
-      entreprise: e.target[0].value,
+      smallCompagny: {
+        compagnyName: e.target[0].value,
+      },
       title: e.target[1].value,
-      createAt: Date.now(),
+      publishDate: Date.now(),
       description: e.target[2].value,
-      descriptionPreview: e.target[2].value.substring(0, 3),
+      descriptionPreview: e.target[2].value.substring(0, 400),
     };
     setjobs([...jobs, newJob]);
+
+    addDoc(jobsCol, newJob);
   };
 
   return (
-    <div>
+    <div className="div-form">
       <h2>form</h2>
       <form onSubmit={handleForm}>
         <div>
@@ -37,4 +44,15 @@ export const AddJobForm = (props) => {
       </form>
     </div>
   );
+};
+
+JobForm.prototype = {
+  handleForm: PropTypes.func.isRequired,
+  smallCompagny: {
+    compagnyName: PropTypes.string.isRequired,
+  },
+  title: PropTypes.string.isRequired,
+  publishDate: Date.now(),
+  description: PropTypes.string.isRequired,
+  descriptionPreview: PropTypes.string.isRequired,
 };

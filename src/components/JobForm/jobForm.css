@@ -1,0 +1,11 @@
+.div-form {
+    border: 1px solid black;
+    box-shadow: 0px 4px 8px rgba(59,130,246,.5);
+    width: 40%;
+    margin: auto;
+}
+
+form {
+    width: 46%;
+    margin: auto;
+}

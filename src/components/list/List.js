@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { jobsList } from '../../data/firebase.config.js';
-import { AddJobForm } from '../addJobForm/AddJobForm';
+import { JobForm } from '../JobForm/JobForm';
 import './list.css';
 
 export const List = () => {
   const [jobs, setJobs] = useState([]);
+  console.log(jobs);
 
   const fetchList = () => {
     jobsList.then((result) => setJobs(...jobs, result));
@@ -26,7 +27,7 @@ export const List = () => {
   return (
     <div>
       {list}
-      <AddJobForm data={[jobs, setJobs]} />
+      <JobForm data={[jobs, setJobs]} />
     </div>
   );
 };

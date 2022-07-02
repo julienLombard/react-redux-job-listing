@@ -20,7 +20,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // collection
-const jobsCol = collection(db, 'jobs');
+export const jobsCol = collection(db, 'jobs');
 
 export const jobsList = getDocs(jobsCol)
   .then((snapshot) => {
