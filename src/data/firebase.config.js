@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import { collection, getFirestore } from 'firebase/firestore';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -21,15 +21,3 @@ export const db = getFirestore(app);
 
 // collection
 export const jobsCol = collection(db, 'jobs');
-
-export const jobsList = getDocs(jobsCol)
-  .then((snapshot) => {
-    let jobs = [];
-    snapshot.docs.forEach((doc) => {
-      jobs.push({ ...doc.data(), id: doc.id });
-    });
-    return jobs;
-  })
-  .catch((err) => {
-    console.log(err.message);
-  });
