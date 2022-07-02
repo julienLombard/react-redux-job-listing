@@ -15,10 +15,10 @@ export const JobForm = () => {
       smallCompagny: {
         compagnyName: e.target[0].value,
       },
-      title: e.target[1].value,
+      title: e.target.titre.value,
       publishDate: Date.now(),
-      description: e.target[2].value,
-      descriptionPreview: e.target[2].value.substring(0, 400),
+      description: e.target.description.value,
+      descriptionPreview: e.target.description.value.substring(0, 400),
     };
 
     addDoc(jobsCol, newJob);

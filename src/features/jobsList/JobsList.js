@@ -1,21 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getjobsList } from './jobsListSlice';
-import '../../components/list/list.css';
+import { JobCard } from '../../components/jobCard/JobCard';
 
 const JobsList = () => {
   const jobsList = useSelector(getjobsList);
 
   let renderJobsList =
     jobsList !== undefined
-      ? jobsList.map((job, index) => {
-          return (
-            <div key={index} className="div-job-card">
-              <h2>{job.title}</h2>
-              <p>{job.descriptionPreview}</p>
-            </div>
-          );
-        })
+      ? jobsList.map((job, index) => <JobCard job={job} key={index} />)
       : null;
 
   return <div>{renderJobsList}</div>;
