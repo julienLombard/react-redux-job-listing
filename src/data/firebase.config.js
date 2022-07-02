@@ -14,10 +14,10 @@ const firebaseConfig = {
 };
 
 // initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
 // initialize service
-const db = getFirestore(app);
+export const db = getFirestore(app);
 
 // collection
 export const jobsCol = collection(db, 'jobs');

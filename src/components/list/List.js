@@ -5,7 +5,6 @@ import './list.css';
 
 export const List = () => {
   const [jobs, setJobs] = useState([]);
-  console.log(jobs);
 
   const fetchList = () => {
     jobsList.then((result) => setJobs(...jobs, result));
