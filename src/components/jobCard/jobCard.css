@@ -19,33 +19,36 @@
 }
 
 .figure-job-card {
+    display: flex;
     width: 50%;
 }
 
 .img-job-card {
+    height: 100%;
     width: 100%;
+    object-fit: contain;
 }
 
-.info-div-job-card {
+.div-info-job-card {
     margin-right: 1em;
 }
 
-.info-div-job-card h2,
-.info-div-job-card h3 {
+.div-info-job-card h2,
+.div-info-job-card h3 {
     line-height: 20%;
 }
 
-.info-div-job-card h2 {
+.div-info-job-card h2 {
     font-size: 1em;
     font-weight: 450;
 }
 
-.info-div-job-card h3 {
+.div-info-job-card h3 {
     font-size: .8em;
     margin-bottom: 1.5em;
 }
 
-.info-div-job-card p {
+.div-info-job-card p {
     font-size: .7em;
     line-height: 95%;
     margin: .3em 0 .3em 0;

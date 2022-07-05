@@ -4,11 +4,15 @@ import './jobCard.css';
 export const JobCard = (props) => {
   const { job } = props;
 
-  const skillsList = job.skillsList.map((e, i) => (
-    <li key={i} className="li-job-card">
-      {e.name}
-    </li>
-  ));
+  const skillsList = job ? (
+    job.skillsList.map((e, i) => (
+      <li key={i} className="li-job-card">
+        {e.name}
+      </li>
+    ))
+  ) : (
+    <p>Error loading jobs list</p>
+  );
 
   return (
     <div className="div-job-card">
@@ -21,7 +25,7 @@ export const JobCard = (props) => {
           />
         </figure>
       </div>
-      <div className="info-div-job-card">
+      <div className="div-info-job-card">
         <h2>{job.smallCompany.companyName}</h2>
         <h3>{job.title}</h3>
         {job.details.city && (

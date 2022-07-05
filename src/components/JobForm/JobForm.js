@@ -5,10 +5,20 @@ import { jobsCol } from '../../data/firebase.config';
 import { PropTypes } from 'prop-types';
 import './jobForm.css';
 import { fetchAsyncJobsList } from '../../features/jobsList/jobsListSlice';
-import { addListener } from '@reduxjs/toolkit';
 
 export const JobForm = () => {
   const dispatch = useDispatch();
+
+  const addJob = async (col, job) => {
+    try {
+      addDoc(col, job);
+      console.log('Job added to list');
+      alert('Le job a bien été ajouté à la liste !');
+    } catch (e) {
+      console.log('Error adding Job', e);
+    }
+  };
+
   const handleForm = (e) => {
     e.preventDefault();
 
@@ -22,11 +32,8 @@ export const JobForm = () => {
       descriptionPreview: e.target.description.value.substring(0, 400),
     };
 
-    addDoc(jobsCol, newJob);
+    addJob(jobsCol, newJob);
     dispatch(fetchAsyncJobsList());
-
-    console.log('Job added to list');
-    alert('Le job a bien été ajouté à la liste !');
   };
 
   return (
