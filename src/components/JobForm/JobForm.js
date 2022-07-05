@@ -3,7 +3,6 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { jobsCol } from '../../data/firebase.config';
 import { PropTypes } from 'prop-types';
-import './jobForm.css';
 import { fetchAsyncJobsList } from '../../features/jobsList/jobsListSlice';
 
 export const JobForm = () => {
