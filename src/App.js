@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <main className="App-main">
-        <h1>Job Listing</h1>
+        <h1>Jobs Listing</h1>
         <JobsList />
         <JobForm />
       </main>

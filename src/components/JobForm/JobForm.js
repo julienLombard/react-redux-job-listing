@@ -37,7 +37,7 @@ export const JobForm = () => {
 
   return (
     <div className="div-form">
-      <h2>form</h2>
+      <h2>Ajouter un Job</h2>
       <form onSubmit={handleForm}>
         <div>
           <label htmlFor="entreprise">Entreprise </label>

@@ -1,25 +1,26 @@
 .div-job-card {
-    display: flex;
+    display: block;
     width: 100%;
     margin: 2rem auto;
+    padding-bottom: .1em;
 
     background-color: #fff;
 
     box-shadow: 0px 0px 3px grey;
     border-radius: 2%;
 
-    text-align: left;
+    text-align: center;
 
     // Logo
     .div-img {
+
         display: flex;
-        align-items: center;
-    
-        width: 10em;
+        justify-content: center;
+        width: 100%;
     
         figure {
             display: flex;
-            width: 50%;
+            width: 5em;
 
             img {
                 height: 100%;
@@ -28,10 +29,18 @@
             }
         }
     }
+
+    @media (min-width: $medium) {
+
+        .div-img {    
+            align-items: center;
+            width: 33%;
+        }
+    }
     
     // Info
     .div-info {
-        margin-right: 1em;
+        margin: 0 1em 0 1em;
     
         h2, h3 {
         line-height: 20%;
@@ -55,6 +64,7 @@
     
         ul {
             display: flex;
+            justify-content: center;
             width: 100%;
             padding: 0;
         
@@ -68,5 +78,26 @@
                 margin: 0 .2em 0 .2em;
                }
         }
+
+        @media (min-width: $medium) {    
+            ul {
+                justify-content: flex-start;
+            }
+        }
+    }
+
+    @media (min-width: $medium) {
+
+        .div-info {    
+            margin-right: 1em;
+        }
+    }
+}
+
+@media (min-width: $medium) {
+
+    .div-job-card {    
+        display: flex;
+        text-align: left;
     }
 }
