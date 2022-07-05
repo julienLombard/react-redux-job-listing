@@ -21,6 +21,7 @@ export const JobCard = (props) => {
       </div>
       <div className="div-info">
         <h2>{job.smallCompany.companyName}</h2>
+
         <h3>{job.title}</h3>
         {job.details.city && <p>{job.details.city}</p>}
         {job.details.acceptRemote && (
@@ -28,10 +29,10 @@ export const JobCard = (props) => {
         )}
         {job.details.requiredExperience && (
           <p>
-            experience{' '}
+            experience
             {job.details.requiredExperience > 1
-              ? job.details.requiredExperience + ' ans'
-              : job.details.requiredExperience + ' an'}
+              ? ' ' + job.details.requiredExperience + ' ans'
+              : ' ' + job.details.requiredExperience + ' an'}
           </p>
         )}
         {job.details.salary && <p>salaire {job.details.salary}</p>}

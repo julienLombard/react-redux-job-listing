@@ -33,6 +33,30 @@
             }
         }
 
+        .fieldset-skills {
+            display: flex;
+            justify-content: center;
+            width: 16em;
+            margin: .5em auto;
+
+            .div-skills {
+                display: flex;
+
+                input {
+                    width: 100%;
+                }
+            }
+        }
+
+        
+        @media (min-width: $medium) {
+
+            .fieldset-skills {
+                width: 17.5em;
+            }
+            
+        }
+
         select {
             height: 4em;
             width: 24em;

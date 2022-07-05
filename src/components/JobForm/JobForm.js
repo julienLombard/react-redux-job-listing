@@ -22,23 +22,29 @@ export const JobForm = () => {
     e.preventDefault();
 
     const newJob = {
-      smallCompagny: {
-        compagnyName: e.target.entreprise.value,
+      smallCompany: {
+        companyName: e.target.entreprise.value,
+        logoImageLink: e.target.logo.value,
       },
-      title: e.target.titre.value,
+      details: {
+        city: e.target.city.value,
+        acceptRemote: e.target.acceptRemote.value,
+        requiredExperience: e.target.experience.value,
+        salary: `${e.target.salary_min.value}k  ➡  ${e.target.salary_max.value}k`,
+      },
+      title: e.target.title.value,
       publishDate: Date.now(),
       description: e.target.description.value,
       descriptionPreview: e.target.description.value.substring(0, 400),
+      skillsList: [
+        { name: 'JavaScript' },
+        { name: 'React JS' },
+        { name: 'Python' },
+      ],
     };
 
-    // smallCompany.logoImageLink
-    // details.city
-    // details.acceptRemote
-    // details.requiredExperience
-    // details.salary
-
-    // addJob(jobsCol, newJob);
-    // dispatch(fetchAsyncJobsList());
+    addJob(jobsCol, newJob);
+    dispatch(fetchAsyncJobsList());
   };
 
   return (
@@ -58,13 +64,74 @@ export const JobForm = () => {
 
         {/* Titre */}
         <div>
-          <input type="text" name="titre" placeholder="Poste" />
+          <input type="text" name="title" placeholder="Poste" />
         </div>
 
         {/* Ville */}
         <div>
-          <input type="text" name="ville" placeholder="Ville" />
+          <input type="text" name="city" placeholder="Ville" />
         </div>
+
+        {/* Compétences */}
+        <fieldset className="fieldset-skills">
+          <legend>Compétences</legend>
+
+          <div className="div-skills">
+            <div>
+              {/* Ligne 1 */}
+              <div>
+                <input type="checkbox" name="skills" value="JavaScript" />
+                <label htmlFor="JavaScript">JavaScript</label>
+              </div>
+
+              <div>
+                <input type="checkbox" name="skills" value="Java" />
+                <label htmlFor="Java">Java</label>
+              </div>
+
+              <div>
+                <input type="checkbox" name="skills" value="Ruby" />
+                <label htmlFor="Ruby">Ruby</label>
+              </div>
+            </div>
+
+            {/* Ligne 2 */}
+            <div>
+              <div>
+                <input type="checkbox" name="skills" value="React JS" />
+                <label htmlFor="React JS">React JS</label>
+              </div>
+
+              <div>
+                <input type="checkbox" name="skills" value="Python" />
+                <label htmlFor="Python">Python</label>
+              </div>
+
+              <div>
+                <input type="checkbox" name="skills" value="PHP" />
+                <label htmlFor="PHP">PHP</label>
+              </div>
+            </div>
+
+            {/* Ligne 3 */}
+            <div>
+              <div>
+                <input type="checkbox" name="skills" value="Vue JS" />
+                <label htmlFor="Vue JS">Vue JS</label>
+              </div>
+
+              <div>
+                <input type="checkbox" name="skills" value="Django" />
+                <label htmlFor="Django">Django</label>
+              </div>
+
+              <div>
+                <input type="checkbox" name="skills" value="Symfony" />
+                <label htmlFor="Symfony">Symfony</label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
 
         {/* Télétravail */}
         <div className="div-select">
@@ -101,8 +168,8 @@ export const JobForm = () => {
         <div>
           <p>Salaire</p>
           <div className="div-salary">
-            <input type="num" name="salaire_min" placeholder="min" />
-            <input type="num" name="salaire_max" placeholder="max" />
+            <input type="num" name="salary_min" placeholder="min" />
+            <input type="num" name="salary_max" placeholder="max" />
           </div>
         </div>
 
@@ -127,9 +194,21 @@ JobForm.prototype = {
   handleForm: PropTypes.func.isRequired,
   smallCompagny: {
     compagnyName: PropTypes.string.isRequired,
+    logoImageLink: PropTypes.string.isRequired,
+  },
+  details: {
+    city: PropTypes.string.isRequired,
+    acceptRemote: PropTypes.string.isRequired,
+    requiredExperience: PropTypes.number.isRequired,
+    salary: PropTypes.string.isRequired,
   },
   title: PropTypes.string.isRequired,
   publishDate: Date.now(),
   description: PropTypes.string.isRequired,
   descriptionPreview: PropTypes.string.isRequired,
+  skillsList: [
+    { name: PropTypes.string.isRequired },
+    { name: PropTypes.string.isRequired },
+    { name: PropTypes.string.isRequired },
+  ],
 };
