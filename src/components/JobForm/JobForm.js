@@ -21,6 +21,11 @@ export const JobForm = () => {
   const handleForm = (e) => {
     e.preventDefault();
 
+    const checkedBox = [];
+    e.target.skills.forEach((e) =>
+      e.checked === true ? checkedBox.push({ name: e.defaultValue }) : null
+    );
+
     const newJob = {
       smallCompany: {
         companyName: e.target.entreprise.value,
@@ -36,11 +41,7 @@ export const JobForm = () => {
       publishDate: Date.now(),
       description: e.target.description.value,
       descriptionPreview: e.target.description.value.substring(0, 400),
-      skillsList: [
-        { name: 'JavaScript' },
-        { name: 'React JS' },
-        { name: 'Python' },
-      ],
+      skillsList: checkedBox,
     };
 
     addJob(jobsCol, newJob);
