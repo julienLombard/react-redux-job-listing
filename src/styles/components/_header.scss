@@ -10,6 +10,7 @@ header {
     background-color: $color-2;
     color: $color-1;
 
+    // Logo
     .div-logo {
 
         margin-left: 1em;
@@ -21,7 +22,7 @@ header {
             height: 32px;
             stroke: $color-5;
         }
-    
+
     }
 
     // Burger Menu
@@ -97,6 +98,7 @@ header {
         display: none;
     } 
 
+    // nav medium size
     .nav-medium-size {
 
         display: none;
@@ -141,4 +143,4 @@ header {
             display: none;
         }
     }
-}
+} 

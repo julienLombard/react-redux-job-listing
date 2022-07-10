@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { JobForm } from './components/jobForm/JobForm';
+import { JobForm } from './components/JobForm/JobForm';
 import { Header } from './components/header/Header';
 import JobsList from './features/jobsList/JobsList';
 import { fetchAsyncJobsList } from './features/jobsList/jobsListSlice';
