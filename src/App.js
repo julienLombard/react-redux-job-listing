@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { JobForm } from './components/JobForm/JobForm';
 import JobsList from './features/jobsList/JobsList';
@@ -6,6 +6,7 @@ import { fetchAsyncJobsList } from './features/jobsList/jobsListSlice';
 
 function App() {
   const dispatch = useDispatch();
+  const [display, setDisplay] = useState(false);
   const scrollToList = useRef(null);
   const scrollToForm = useRef(null);
 
@@ -20,6 +21,11 @@ function App() {
   function handleClickForm() {
     scrollToForm.current.scrollIntoView();
   }
+
+  const toggleMenu = () => {
+    setDisplay(!display);
+    console.log(display);
+  };
 
   return (
     <div className="App">
@@ -46,11 +52,41 @@ function App() {
             </g>
           </svg>
         </div>
-        <nav>
-          <ul>
-            <li onClick={handleClickList}>Jobs listing</li>
 
-            <li onClick={handleClickForm}>Ajouter Job</li>
+        {/* btn Burger Menu */}
+        <div className="btn" onClick={toggleMenu}>
+          <div className="btn__burger"></div>
+        </div>
+        {/* div Burger Menu */}
+        <div
+          className={
+            // 'div-burger-menu ' + (display ? ' displayBlock' : 'displayNone')
+            'div-burger-menu ' + (display ? '  displayBlock' : 'displayNone')
+          }
+        >
+          <nav className="nav-burger-menu">
+            <ul className="ul-burger-menu">
+              <li onClick={handleClickList} className="li-burger-menu">
+                Jobs listing
+              </li>
+
+              <li onClick={handleClickForm} className="li-burger-menu">
+                Ajouter Job
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        {/* Medium Size Menu */}
+        <nav className="nav-medium-size">
+          <ul className="ul-medium-size">
+            <li onClick={handleClickList} className="li-medium-size">
+              Jobs listing
+            </li>
+
+            <li onClick={handleClickForm} className="li-medium-size">
+              Ajouter Job
+            </li>
           </ul>
         </nav>
       </header>
