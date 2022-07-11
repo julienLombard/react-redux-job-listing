@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const Header = (props, ref) => {
+export const Header = (props) => {
   const scrollToList = props.scrollToList;
   const scrollToForm = props.scrollToForm;
   const [display, setDisplay] = useState(false);
