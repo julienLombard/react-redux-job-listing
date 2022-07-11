@@ -7,7 +7,6 @@ export const Header = (props) => {
 
   const toggleMenu = () => {
     setDisplay(!display);
-    console.log(display);
   };
 
   function handleClickList() {
@@ -50,7 +49,6 @@ export const Header = (props) => {
       {/* div Burger Menu */}
       <div
         className={
-          // 'div-burger-menu ' + (display ? ' displayBlock' : 'displayNone')
           'div-burger-menu ' + (display ? '  displayBlock' : 'displayNone')
         }
       >

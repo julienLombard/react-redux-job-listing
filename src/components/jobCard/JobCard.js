@@ -1,12 +1,10 @@
 import React from 'react';
+import { useMemo } from 'react';
 
-export const JobCard = (props) => {
-  const { job } = props;
-
-  const skillsList = job ? (
-    job.skillsList.map((e, i) => <li key={i}>{e.name}</li>)
-  ) : (
-    <p>Error loading jobs list</p>
+export const JobCard = ({ job }) => {
+  const skillsList = useMemo(
+    () => job.skillsList.map((e, i) => <li key={i}>{e.name}</li>),
+    [job]
   );
 
   return (
@@ -14,15 +12,23 @@ export const JobCard = (props) => {
       <div className="div-img">
         <figure>
           <img
-            src={job.smallCompany.logoImageLink}
-            alt={'Logo entreprise ' + job.smallCompany.companyName}
+            src={
+              job.smallCompany.logoImageLink
+                ? job.smallCompany.logoImageLink
+                : null
+            }
+            alt={
+              'Logo entreprise ' + job.smallCompany ? job.smallCompany : null
+            }
           />
         </figure>
       </div>
       <div className="div-info">
-        <h2>{job.smallCompany.companyName}</h2>
+        {job.smallCompany.companyName && (
+          <h2>{job.smallCompany.companyName}</h2>
+        )}
 
-        <h3>{job.title}</h3>
+        {job.title && <h3>{job.title}</h3>}
         {job.details.city && <p>{job.details.city}</p>}
         {job.details.acceptRemote && (
           <p>télétravail {job.details.acceptRemote}</p>
@@ -36,9 +42,11 @@ export const JobCard = (props) => {
           </p>
         )}
         {job.details.salary && <p>salaire {job.details.salary}</p>}
-        <ul>
-          {skillsList[0]} | {skillsList[1]} | {skillsList[2]}
-        </ul>
+        {skillsList && (
+          <ul>
+            {skillsList[0]} | {skillsList[1]} | {skillsList[2]}
+          </ul>
+        )}
       </div>
     </div>
   );

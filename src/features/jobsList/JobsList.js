@@ -6,12 +6,13 @@ import { JobCard } from '../../components/jobCard/JobCard';
 const JobsList = () => {
   const jobsList = useSelector(getjobsList);
 
-  let renderJobsList =
-    jobsList !== undefined
-      ? jobsList.map((job, index) => <JobCard job={job} key={index} />)
-      : null;
-
-  return <div>{renderJobsList}</div>;
+  return (
+    <div>
+      {jobsList !== undefined
+        ? jobsList.map((job, index) => <JobCard job={job} key={index} />)
+        : null}
+    </div>
+  );
 };
 
 export default JobsList;

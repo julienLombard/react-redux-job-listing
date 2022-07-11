@@ -10,8 +10,10 @@ export const JobForm = () => {
 
   const addJob = async (col, job) => {
     try {
-      addDoc(col, job);
-      console.log('Job added to list');
+      const newJob = await addDoc(col, job);
+      console.log(
+        'New job added to ' + newJob._key.path.segments[0] + ' list.'
+      );
       alert('Le job a bien été ajouté à la liste !');
     } catch (e) {
       console.log('Error adding Job', e);
